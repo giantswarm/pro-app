@@ -1,0 +1,7 @@
+# app-test-suite config consumed by the generated execute-chart-tests job.
+# Cluster smoke/functional/upgrade tests are skipped: these charts have no ATS
+# test suite, and the generated job runs ATS with smoke enabled but no cluster
+# type, which errors ("Unknown cluster type None"). build-chart (lint + package
+# + values.schema.json) remains the gate.
+smoke-tests-cluster-type: kind
+skip-steps: [smoke,functional,upgrade]
